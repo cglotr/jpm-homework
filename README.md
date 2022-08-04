@@ -4,7 +4,9 @@ Homework [requirements](https://github.com/cglotr/jpm-homework/blob/master/homew
 
 ## Demo
 
-![Video](https://drive.google.com/file/d/1ZclcB71T_-A_yIGKT1zIzjb7TNkplzzs/view?usp=sharing)
+Happy path [video](https://drive.google.com/file/d/1ZclcB71T_-A_yIGKT1zIzjb7TNkplzzs/view?usp=sharing) demo
+
+Cancel failure [demo](https://github.com/cglotr/jpm-homework/blob/master/demo_cancel_failed.png)
 
 ## Components
 
@@ -23,6 +25,10 @@ Homework [requirements](https://github.com/cglotr/jpm-homework/blob/master/homew
 ## Test
 
 ![coverage](https://github.com/cglotr/jpm-homework/blob/master/coverage.png)
+
+## Notes
+
+- Added additional command `Exit` to exit the program
 
 ## IDE
 
