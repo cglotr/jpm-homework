@@ -1,4 +1,4 @@
-Setup SHOW1 5 5 1
+Setup SHOW1 2 3 1
 Availability SHOW1
 Availability SHOW2
 Book SHOW1 +6587503118 A1,A2

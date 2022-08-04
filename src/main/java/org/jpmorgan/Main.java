@@ -99,8 +99,8 @@ public class Main {
                     displayManager.displayCancelledBooking();
                 }
                 case EXIT -> {
-                    System.out.print("Exiting...\n");
-                    System.out.print("Thanks for using JPM Show Booker. Bye!\n");
+                    System.out.print("٩(◕‿◕｡)۶ · Exiting...\n");
+                    System.out.print("٩(◕‿◕｡)۶ · Thanks for using JPM Show Booker. Bye! · ٩(◕‿◕｡)۶\n");
                     System.exit(0);
                 }
                 default -> {
@@ -111,6 +111,6 @@ public class Main {
     }
 
     private static void printError(String error) {
-        System.out.printf("(๑◕︵◕๑) · ERROR: %s\n", error);
+        System.out.printf("٩(× ×)۶ · ERROR: %s\n", error);
     }
 }
