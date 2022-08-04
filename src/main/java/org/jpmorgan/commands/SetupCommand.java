@@ -13,8 +13,7 @@ public class SetupCommand implements Command {
             this.numberOfRows = Integer.parseInt(words[2]);
             this.numberOfSeatsPerRow = Integer.parseInt(words[3]);
             this.cancellationWindowInMinutes = Integer.parseInt(words[4]);
-        } catch (Exception e) {
-            System.out.printf("> Error parsing command\n");
+        } catch (Exception ignored) {
         }
     }
 
@@ -29,10 +28,7 @@ public class SetupCommand implements Command {
         if (numberOfSeatsPerRow <= 0) {
             return false;
         }
-        if (cancellationWindowInMinutes < 0) {
-            return false;
-        }
-        return true;
+        return cancellationWindowInMinutes >= 0;
     }
 
     @Override
@@ -43,5 +39,21 @@ public class SetupCommand implements Command {
                 numberOfRows,
                 numberOfSeatsPerRow,
                 cancellationWindowInMinutes);
+    }
+
+    public String getShowNumber() {
+        return showNumber;
+    }
+
+    public int getNumberOfRows() {
+        return numberOfRows;
+    }
+
+    public int getNumberOfSeatsPerRow() {
+        return numberOfSeatsPerRow;
+    }
+
+    public int getCancellationWindowInMinutes() {
+        return cancellationWindowInMinutes;
     }
 }

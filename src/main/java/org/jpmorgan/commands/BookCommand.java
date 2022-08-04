@@ -13,8 +13,7 @@ public class BookCommand implements Command {
             this.showNumber = words[1];
             this.phoneNumber = words[2];
             this.seats = List.of(words[3].split(","));
-        } catch (Exception e) {
-            System.out.printf("> Error parsing command\n");
+        } catch (Exception ignored) {
         }
     }
 
@@ -26,10 +25,7 @@ public class BookCommand implements Command {
         if (phoneNumber == null) {
             return false;
         }
-        if (seats.size() <= 0) {
-            return false;
-        }
-        return true;
+        return seats.size() > 0;
     }
 
     @Override
@@ -38,5 +34,17 @@ public class BookCommand implements Command {
                 showNumber,
                 phoneNumber,
                 seats.toString());
+    }
+
+    public String getShowNumber() {
+        return showNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public List<String> getSeats() {
+        return seats;
     }
 }

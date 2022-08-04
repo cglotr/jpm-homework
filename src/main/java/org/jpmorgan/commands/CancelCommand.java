@@ -9,8 +9,7 @@ public class CancelCommand implements Command {
         try {
             this.ticketNumber = words[1];
             this.phoneNumber = words[2];
-        } catch (Exception e) {
-            System.out.printf("> Error parsing command\n");
+        } catch (Exception ignored) {
         }
     }
 
@@ -19,14 +18,19 @@ public class CancelCommand implements Command {
         if (ticketNumber == null) {
             return false;
         }
-        if (phoneNumber == null) {
-            return false;
-        }
-        return true;
+        return phoneNumber != null;
     }
 
     @Override
     public String toString() {
         return String.format("CancelCommand {ticketNumber=%s, phoneNumber=%s}", ticketNumber, phoneNumber);
+    }
+
+    public String getTicketNumber() {
+        return ticketNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }

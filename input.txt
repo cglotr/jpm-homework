@@ -1,0 +1,8 @@
+Setup SHOW1 5 5 1
+Availability SHOW1
+Availability SHOW2
+Book SHOW1 +6587503118 A1,A2
+Book SHOW2 +6587503118 A1,A2
+View SHOW1
+View SHOW2
+Exit
