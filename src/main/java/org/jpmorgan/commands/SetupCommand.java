@@ -1,6 +1,9 @@
 package org.jpmorgan.commands;
 
 public class SetupCommand implements Command {
+    private static final int MAX_ROWS = 26;
+    private static final int MAX_COLS = 26;
+
     private String showNumber;
     private int numberOfRows;
     private int numberOfSeatsPerRow;
@@ -22,10 +25,10 @@ public class SetupCommand implements Command {
         if (showNumber == null) {
             return false;
         }
-        if (numberOfRows <= 0) {
+        if (numberOfRows <= 0 || numberOfRows > MAX_ROWS) {
             return false;
         }
-        if (numberOfSeatsPerRow <= 0) {
+        if (numberOfSeatsPerRow <= 0 || numberOfSeatsPerRow > MAX_COLS) {
             return false;
         }
         return cancellationWindowInMinutes >= 0;

@@ -18,8 +18,10 @@ class SetupCommandTest {
 
     @Test
     public void availabilityCommandInvalid() {
-        SetupCommand setupCommand = new SetupCommand("Setup");
-
-        assertFalse(setupCommand.isValid());
+        assertFalse(new SetupCommand("Setup").isValid());
+        assertFalse(new SetupCommand("Setup SHOW1 0 1 0").isValid());
+        assertFalse(new SetupCommand("Setup SHOW1 1 0 0").isValid());
+        assertFalse(new SetupCommand("Setup SHOW1 27 1 0").isValid());
+        assertFalse(new SetupCommand("Setup SHOW1 1 27 0").isValid());
     }
 }

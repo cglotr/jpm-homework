@@ -33,6 +33,11 @@ public class Main {
                 case SETUP -> {
                     SetupCommand setupCommand = new SetupCommand(line);
 
+                    if (!setupCommand.isValid()) {
+                        printError("Invalid setup arguments!");
+                        break;
+                    }
+
                     Result<ShowBean> setupResult = showManager.setup(
                             setupCommand.getShowNumber(),
                             setupCommand.getNumberOfRows(),
