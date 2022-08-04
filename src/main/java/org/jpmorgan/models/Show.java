@@ -49,6 +49,10 @@ public class Show {
             for (int col = 0; col < getCols(); col++) {
                 Ticket ticket = tickets[row][col];
 
+                if (ticket == null) {
+                    continue;
+                }
+
                 boolean matching = ticket.getSeat().equals(seat);
                 boolean isOwner = ticket.getPhoneNumber().equals(phoneNumber);
                 boolean isStillWithinCancelPeriod = canCancel(ticket.getBookingTime());
