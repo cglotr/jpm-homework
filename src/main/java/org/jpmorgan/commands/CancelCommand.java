@@ -21,11 +21,6 @@ public class CancelCommand implements Command {
         return phoneNumber != null;
     }
 
-    @Override
-    public String toString() {
-        return String.format("CancelCommand {ticketNumber=%s, phoneNumber=%s}", ticketNumber, phoneNumber);
-    }
-
     public String getTicketNumber() {
         return ticketNumber;
     }

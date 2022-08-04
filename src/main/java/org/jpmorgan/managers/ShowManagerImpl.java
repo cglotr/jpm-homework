@@ -72,6 +72,10 @@ public class ShowManagerImpl implements ShowManager {
 
     @Override
     public Result<Boolean> cancel(String ticketNumber, String phoneNumber) {
+        if (ticketNumber == null || phoneNumber == null) {
+            return new Result<>("invalid cancel request");
+        }
+
         String showNumber = TicketUtil.parseShowNumberFromTicketNumber(ticketNumber);
 
         Show show = find(showNumber);
@@ -81,7 +85,7 @@ public class ShowManagerImpl implements ShowManager {
         }
 
         String seat = TicketUtil.parseSeatFromTicketNumber(ticketNumber);
-        boolean cancelled = show.cancel(seat);
+        boolean cancelled = show.cancel(seat, phoneNumber);
 
         if (!cancelled) {
             return new Result<>("booking cancellation failed");

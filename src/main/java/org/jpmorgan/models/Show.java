@@ -44,11 +44,16 @@ public class Show {
         return ticket;
     }
 
-    public boolean cancel(String seat) {
+    public boolean cancel(String seat, String phoneNumber) {
         for (int row = 0; row < getRows(); row++) {
             for (int col = 0; col < getCols(); col++) {
                 Ticket ticket = tickets[row][col];
-                if (ticket.getSeat().equals(seat) && canCancel(ticket.getBookingTime())) {
+
+                boolean matching = ticket.getSeat().equals(seat);
+                boolean isOwner = ticket.getPhoneNumber().equals(phoneNumber);
+                boolean isStillWithinCancelPeriod = canCancel(ticket.getBookingTime());
+
+                if (matching && isOwner && isStillWithinCancelPeriod) {
                     tickets[row][col] = null;
                     return true;
                 }

@@ -28,14 +28,6 @@ public class BookCommand implements Command {
         return seats.size() > 0;
     }
 
-    @Override
-    public String toString() {
-        return String.format("BookCommand {showNumber=%s, phoneNumber=%s, seats=%s}",
-                showNumber,
-                phoneNumber,
-                seats.toString());
-    }
-
     public String getShowNumber() {
         return showNumber;
     }

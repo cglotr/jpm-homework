@@ -31,16 +31,6 @@ public class SetupCommand implements Command {
         return cancellationWindowInMinutes >= 0;
     }
 
-    @Override
-    public String toString() {
-        return String.format(
-                "SetupCommand {showNumber=%s, numberOfRows=%d, numberOfSeatsPerRow=%d, cancellationWindowInMinutes=%d}",
-                showNumber,
-                numberOfRows,
-                numberOfSeatsPerRow,
-                cancellationWindowInMinutes);
-    }
-
     public String getShowNumber() {
         return showNumber;
     }

@@ -16,11 +16,6 @@ public class AvailabilityCommand implements Command {
         return showNumber != null;
     }
 
-    @Override
-    public String toString() {
-        return String.format("AvailabilityCommand {showNumber=%s}", showNumber);
-    }
-
     public String getShowNumber() {
         return showNumber;
     }

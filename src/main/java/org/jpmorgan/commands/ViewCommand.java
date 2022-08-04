@@ -16,11 +16,6 @@ public class ViewCommand implements Command {
         return showNumber != null;
     }
 
-    @Override
-    public String toString() {
-        return String.format("ViewCommand {showNumber=%s}", showNumber);
-    }
-
     public String getShowNumber() {
         return showNumber;
     }
