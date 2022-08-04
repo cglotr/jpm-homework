@@ -4,7 +4,7 @@ Homework [requirements](https://github.com/cglotr/jpm-homework/blob/master/homew
 
 ## Demo
 
-Happy path [video](https://drive.google.com/file/d/1ZclcB71T_-A_yIGKT1zIzjb7TNkplzzs/view?usp=sharing) demo
+Happy path [video](https://drive.google.com/file/d/10JXGdLfcgTu3YrdpeOYRtd4X5EM6D3_Z/view?usp=sharing) demo
 
 Cancel failure [demo](https://github.com/cglotr/jpm-homework/blob/master/demo_cancel_failed.png)
 
