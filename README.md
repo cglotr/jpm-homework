@@ -8,6 +8,15 @@ Happy path [video](https://drive.google.com/file/d/10JXGdLfcgTu3YrdpeOYRtd4X5EM6
 
 Cancel failure [demo](https://github.com/cglotr/jpm-homework/blob/master/demo_cancel_failed.png)
 
+## Notes
+
+- Additional commands:
+    - `Exit` - To exit the program
+    - `Login` - To login as Admin user
+    - `Logout` - To logout as Admin user
+- Assumptions:
+    - `Admin` users can also do `Buyer` actions
+
 ## Components
 
 1. [Show Manager](https://github.com/cglotr/jpm-homework/blob/master/src/main/java/org/jpmorgan/managers/DisplayManagerImpl.java)
@@ -25,10 +34,6 @@ Cancel failure [demo](https://github.com/cglotr/jpm-homework/blob/master/demo_ca
 ## Test
 
 ![coverage](https://github.com/cglotr/jpm-homework/blob/master/coverage.png)
-
-## Notes
-
-- Added additional command `Exit` to exit the program
 
 ## IDE
 
