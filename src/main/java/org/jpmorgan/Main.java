@@ -16,8 +16,11 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class Main {
+    private static boolean isAdmin = false;
+
     public static void main(String[] args) throws IOException {
         System.out.print("٩(◕‿◕｡)۶ · Welcome to JPM Show Booker! · ٩(◕‿◕｡)۶\n");
+        printUserType();
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         ShowManager showManager = new ShowManagerImpl();
@@ -31,6 +34,11 @@ public class Main {
 
             switch (command) {
                 case SETUP -> {
+                    if (!isAdmin) {
+                        printError("Access denied!");
+                        break;
+                    }
+
                     SetupCommand setupCommand = new SetupCommand(line);
 
                     if (!setupCommand.isValid()) {
@@ -53,6 +61,11 @@ public class Main {
                     displayManager.displaySetupSuccess(setupResult.data());
                 }
                 case VIEW -> {
+                    if (!isAdmin) {
+                        printError("Access denied!");
+                        break;
+                    }
+
                     ViewCommand viewCommand = new ViewCommand(line);
 
                     Result<ShowBean> showBeanResult = showManager.view(viewCommand.getShowNumber());
@@ -103,6 +116,14 @@ public class Main {
 
                     displayManager.displayCancelledBooking();
                 }
+                case LOGIN -> {
+                    isAdmin = true;
+                    printUserType();
+                }
+                case LOGOUT -> {
+                    isAdmin = false;
+                    printUserType();
+                }
                 case EXIT -> {
                     System.out.print("٩(◕‿◕｡)۶ · Exiting...\n");
                     System.out.print("٩(◕‿◕｡)۶ · Thanks for using JPM Show Booker. Bye! · ٩(◕‿◕｡)۶\n");
@@ -117,5 +138,13 @@ public class Main {
 
     private static void printError(String error) {
         System.out.printf("٩(× ×)۶ · ERROR: %s\n", error);
+    }
+
+    private static String userType() {
+        return isAdmin ? "Admin" : "Buyer";
+    }
+
+    private static void printUserType() {
+        System.out.printf("٩(◕‿◕｡)۶ · User type: %s\n", userType());
     }
 }

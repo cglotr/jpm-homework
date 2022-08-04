@@ -21,6 +21,8 @@ public class InputUtil {
             case "book" -> Command.BOOK;
             case "cancel" -> Command.CANCEL;
             case "exit" -> Command.EXIT;
+            case "login" -> Command.LOGIN;
+            case "logout" -> Command.LOGOUT;
             default -> Command.INVALID;
         };
     }

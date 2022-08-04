@@ -7,5 +7,7 @@ public enum Command {
     AVAILABILITY,
     BOOK,
     CANCEL,
-    EXIT;
+    EXIT,
+    LOGIN,
+    LOGOUT
 }
