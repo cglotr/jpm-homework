@@ -58,7 +58,7 @@ public class Main {
                         break;
                     }
 
-                    displayManager.displaySetupSuccess(setupResult.data());
+                    System.out.print(displayManager.displaySetupSuccess(setupResult.data()));
                 }
                 case VIEW -> {
                     if (!isAdmin) {
@@ -75,7 +75,7 @@ public class Main {
                         break;
                     }
 
-                    displayManager.displayBookedShows(showBeanResult.data());
+                    System.out.print(displayManager.displayBookedShows(showBeanResult.data()));
                 }
                 case AVAILABILITY -> {
                     AvailabilityCommand availabilityCommand = new AvailabilityCommand(line);
@@ -87,7 +87,7 @@ public class Main {
                         break;
                     }
 
-                    displayManager.displaySeatNumbers(availabilityResult.data());
+                    System.out.print(displayManager.displaySeatNumbers(availabilityResult.data()));
                 }
                 case BOOK -> {
                     BookCommand bookCommand = new BookCommand(line);
@@ -102,7 +102,7 @@ public class Main {
                         break;
                     }
 
-                    displayManager.displayBookingSuccess(bookResult.data());
+                    System.out.print(displayManager.displayBookingSuccess(bookResult.data()));
                 }
                 case CANCEL -> {
                     CancelCommand cancelCommand = new CancelCommand(line);
@@ -114,7 +114,7 @@ public class Main {
                         break;
                     }
 
-                    displayManager.displayCancelledBooking();
+                    System.out.print(displayManager.displayCancelledBooking());
                 }
                 case LOGIN -> {
                     isAdmin = true;

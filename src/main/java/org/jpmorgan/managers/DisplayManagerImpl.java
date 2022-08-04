@@ -7,41 +7,47 @@ import java.util.List;
 
 public class DisplayManagerImpl implements DisplayManager {
     @Override
-    public void displayBookedShows(ShowBean showBean) {
-        System.out.printf("٩(◕‿◕｡)۶ · Showing booked seats for [%s]:\n", showBean.getShowNumber());
+    public String displayBookedShows(ShowBean showBean) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("٩(◕‿◕｡)۶ · Showing booked seats for [%s]:\n", showBean.getShowNumber()));
         showBean.getTickets().forEach(ticketBean -> {
-            System.out.printf("* %s,\tuser=%s,\tseat=%s\n",
+            sb.append(String.format("* %s,\tuser=%s,\tseat=%s\n",
                     ticketBean.getTicketNumber(),
                     ticketBean.getBuyerPhoneNumber(),
-                    ticketBean.getSeatNumber());
+                    ticketBean.getSeatNumber()));
         });
+        return sb.toString();
     }
 
-    public void displaySeatNumbers(List<String> seatNumbers) {
-        System.out.print("٩(◕‿◕｡)۶ · Available seats:\n");
+    public String displaySeatNumbers(List<String> seatNumbers) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("٩(◕‿◕｡)۶ · Available seats:\n");
         seatNumbers.forEach(seatNumber -> {
-            System.out.printf("* %s\n", seatNumber);
+            sb.append(String.format("* %s\n", seatNumber));
         });
+        return sb.toString();
     }
 
     @Override
-    public void displayBookingSuccess(List<TicketBean> ticketBeans) {
-        System.out.printf("٩(◕‿◕｡)۶ · Successfully booked [%d] seats!:\n", ticketBeans.size());
+    public String displayBookingSuccess(List<TicketBean> ticketBeans) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("٩(◕‿◕｡)۶ · Successfully booked [%d] seats!:\n", ticketBeans.size()));
         ticketBeans.forEach(ticketBean -> {
-            System.out.printf("* %s\tshow=%s,\tseat=%s\n",
+            sb.append(String.format("* %s\tshow=%s,\tseat=%s\n",
                     ticketBean.getTicketNumber(),
                     ticketBean.getShowNumber(),
-                    ticketBean.getSeatNumber());
+                    ticketBean.getSeatNumber()));
         });
+        return sb.toString();
     }
 
     @Override
-    public void displaySetupSuccess(ShowBean showBean) {
-        System.out.printf("٩(◕‿◕｡)۶ · Successfully setup a new show [%s]!\n", showBean.getShowNumber());
+    public String displaySetupSuccess(ShowBean showBean) {
+        return String.format("٩(◕‿◕｡)۶ · Successfully setup a new show [%s]!\n", showBean.getShowNumber());
     }
 
     @Override
-    public void displayCancelledBooking() {
-        System.out.print("٩(◕‿◕｡)۶ · Successfully cancelled the booking!\n");
+    public String displayCancelledBooking() {
+        return "٩(◕‿◕｡)۶ · Successfully cancelled the booking!\n";
     }
 }

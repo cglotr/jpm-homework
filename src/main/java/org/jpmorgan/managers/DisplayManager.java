@@ -6,13 +6,13 @@ import org.jpmorgan.beans.TicketBean;
 import java.util.List;
 
 public interface DisplayManager {
-    void displayBookedShows(ShowBean showBean);
+    String displayBookedShows(ShowBean showBean);
 
-    void displaySeatNumbers(List<String> seatNumbers);
+    String displaySeatNumbers(List<String> seatNumbers);
 
-    void displayBookingSuccess(List<TicketBean> ticketBeans);
+    String displayBookingSuccess(List<TicketBean> ticketBeans);
 
-    void displaySetupSuccess(ShowBean showBean);
+    String displaySetupSuccess(ShowBean showBean);
 
-    void displayCancelledBooking();
+    String displayCancelledBooking();
 }
