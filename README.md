@@ -19,7 +19,7 @@ Cancel failure [demo](https://github.com/cglotr/jpm-homework/blob/master/demo_ca
 
 ## Components
 
-1. [Show Manager](https://github.com/cglotr/jpm-homework/blob/master/src/main/java/org/jpmorgan/managers/DisplayManagerImpl.java)
+1. [Show Manager](https://github.com/cglotr/jpm-homework/blob/master/src/main/java/org/jpmorgan/managers/ShowManagerImpl.java)
 
    Handles show booking operations. Main logic is contained here
 
