@@ -34,26 +34,22 @@ class ShowManagerImplTest {
         assertEquals(30, availabilityResult.data().size());
 
         Result<List<TicketBean>> bookResult = showManager.book("SHOW1", "+6587503118", Arrays.asList("A1", "A2", "A3"));
+        TicketBean a1Ticket = bookResult.data().get(0);
+        TicketBean a2Ticket = bookResult.data().get(1);
+        TicketBean a3Ticket = bookResult.data().get(2);
 
         assertFalse(bookResult.isError());
         assertEquals(3, bookResult.data().size());
-        assertEquals("A1", bookResult.data().get(0).getSeatNumber());
-        assertEquals("A2", bookResult.data().get(1).getSeatNumber());
-        assertEquals("A3", bookResult.data().get(2).getSeatNumber());
+        assertEquals("A1", a1Ticket.getSeatNumber());
+        assertEquals("A2", a2Ticket.getSeatNumber());
+        assertEquals("A3", a3Ticket.getSeatNumber());
 
         bookResult = showManager.book("SHOW1", "+6587503118", Arrays.asList("A3", "A4", "A5"));
 
         assertTrue(bookResult.isError());
-        assertEquals("some seats are already booked", bookResult.error());
+        assertEquals("you have already booked before", bookResult.error());
 
-        bookResult = showManager.book("SHOW1", "+6587503118", Arrays.asList("A4", "A5"));
-
-        assertFalse(bookResult.isError());
-        assertEquals(2, bookResult.data().size());
-        assertEquals("A4", bookResult.data().get(0).getSeatNumber());
-        assertEquals("A5", bookResult.data().get(1).getSeatNumber());
-
-        Result<Boolean> cancelResult = showManager.cancel(bookResult.data().get(1).getTicketNumber(), "+6587503118");
+        Result<Boolean> cancelResult = showManager.cancel(a3Ticket.getTicketNumber(), "+6587503118");
 
         assertNotNull(cancelResult.data());
         assertTrue(cancelResult.data());
@@ -62,11 +58,24 @@ class ShowManagerImplTest {
 
         assertNotNull(viewResult);
         assertEquals("SHOW1", viewResult.data().getShowNumber());
-        assertEquals(4, viewResult.data().getTickets().size());
+        assertEquals(2, viewResult.data().getTickets().size());
 
         availabilityResult = showManager.availability("SHOW1");
 
         assertNotNull(availabilityResult);
-        assertEquals(26, availabilityResult.data().size());
+        assertEquals(28, availabilityResult.data().size());
+
+        showManager.cancel(a1Ticket.getTicketNumber(), "+6587503118");
+        showManager.cancel(a2Ticket.getTicketNumber(), "+6587503118");
+        viewResult = showManager.view("SHOW1");
+
+        assertNotNull(viewResult);
+        assertEquals("SHOW1", viewResult.data().getShowNumber());
+        assertEquals(0, viewResult.data().getTickets().size());
+
+        bookResult = showManager.book("SHOW1", "+6587503118", Arrays.asList("A3", "A4"));
+
+        assertFalse(bookResult.isError());
+        assertEquals(2, bookResult.data().size());
     }
 }

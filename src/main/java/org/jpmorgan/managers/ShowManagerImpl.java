@@ -54,6 +54,12 @@ public class ShowManagerImpl implements ShowManager {
             return new Result<>("show not available");
         }
 
+        for (Ticket ticket : show.getTickets()) {
+            if (ticket.getPhoneNumber().equals(phoneNumber)) {
+                return new Result<>("you have already booked before");
+            }
+        }
+
         for (String seat : seats) {
             if (show.isBooked(seat)) {
                 return new Result<>("some seats are already booked");
